@@ -23,8 +23,10 @@ to test locally
 - Open a pull request
 or
 - Message me on discord (@Dr. Njitram#0451)
+
 # Credits
 Created by cloudlupus
 2022 Update for Afterbirth by DrNjitram
 2023 Update by OrcChamp
+
 Currenly maintained by OrcChamp and DrNjitram
