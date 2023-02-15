@@ -1,5 +1,5 @@
 # ccIsaac
-Crowd Control for The Binding of Isaac Repentence
+Crowd Control for The Binding of Isaac Afterbirth+
 
 To get this to work you need to add --luadebug as a launch option in steam so that sockets can work otherwise the Lua script is unable to find the sockets library.
 
@@ -25,4 +25,6 @@ or
 - Message me on discord (@Dr. Njitram#0451)
 # Credits
 Created by cloudlupus
-Updated and currently maintained by Dr_Njitram
+2022 Update for Afterbirth by DrNjitram
+2023 Update by OrcChamp
+Currenly maintained by OrcChamp and DrNjitram

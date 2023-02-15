@@ -2,12 +2,12 @@ local ccConsumables = {}
 
 
 local responseCode = require("tcpResponseCode")
-
+--Increased the amount to a full heart container as it is confusing for players to have a half empty heart container they can't fill
 function ccConsumables.AddHeartContainer()
     if player:GetMaxHearts() == 24 then
         return responseCode.failure, "Already At Max Hearts"
     end
-    player:AddMaxHearts(1)
+    player:AddMaxHearts(2)
     return responseCode.success
 end
 
@@ -15,7 +15,7 @@ function ccConsumables.RemoveHeartContainer()
     if player:GetMaxHearts() == 2 then
         return responseCode.failure, "Already At Min Hearts"
     end
-    player:AddMaxHearts(-1)
+    player:AddMaxHearts(-2)
     return responseCode.success
 end
 
@@ -24,6 +24,14 @@ function ccConsumables.HealHalfHeart()
         return responseCode.failure, "Already At Full Health"
     end
     player:AddHearts(1)
+    return responseCode.success
+end
+--added extra hearts just in case they are playing maggy with birthright
+function ccConsumables.HealFull()
+    if player:GetHearts() >= player:GetMaxHearts() then
+        return responseCode.failure, "Already At Full Health"
+    end
+    player:AddHearts(36)
     return responseCode.success
 end
 
@@ -175,6 +183,62 @@ function ccConsumables.RemoveGigabomb()
     return responseCode.success
 end
 
+--New 2
+
+function ccConsumables.UseExplosiveDiarrhea()
+    player:UsePill((PillEffect.PILLEFFECT_EXPLOSIVE_DIARRHEA),(PillColor.PILL_WHITE_AZURE))
+    return responseCode.success
+end
+
+function ccConsumables.UseHolyCard()
+    player:UseCard((Card.CARD_HOLY))
+    return responseCode.success
+end
+
+function ccConsumables.UseDagazRune()
+    player:UseCard((Card.RUNE_DAGAZ))
+    return responseCode.success
+end
+
+function ccConsumables.UseChaosCard()
+    player:UseCard((Card.CARD_CHAOS))
+    return responseCode.success
+end
+
+function ccConsumables.UseCreditCard()
+    player:UseCard((Card.CARD_CREDIT))
+    return responseCode.success
+end
+
+function ccConsumables.UseSuicideKingCard()
+    player:UseCard((Card.CARD_SUICIDE_KING))
+    return responseCode.success
+end
+
+function ccConsumables.UseReverseHighPriestessCard()
+    player:UseCard((Card.CARD_REVERSE_HIGH_PRIESTESS))
+    return responseCode.success
+end
+
+function ccConsumables.UseReverseEmperor()
+    player:UseCard((Card.CARD_REVERSE_EMPEROR))
+    return responseCode.success
+end
+
+function ccConsumables.UseSoulOfCain()
+    player:UseCard((Card.CARD_SOUL_CAIN))
+    return responseCode.success
+end
+
+function ccConsumables.UseSoulOfEve()
+    player:UseCard((Card.CARD_SOUL_EVE))
+    return responseCode.success
+end
+
+function ccConsumables.UseSoulOfLilith()
+    player:UseCard((Card.CARD_SOUL_LILITH))
+    return responseCode.success
+end
 
 --When adding a new function add the mapping of Crowd control code to function here
 ccConsumables.methods = {
@@ -182,6 +246,7 @@ ccConsumables.methods = {
     remove_heart_container = ccConsumables.RemoveHeartContainer,
     damage_half_heart = ccConsumables.DamageHalfHeart,
     heal_half_heart = ccConsumables.HealHalfHeart,
+    heal_full = ccConsumables.HealFull,
 
     add_coin = ccConsumables.AddCoin,
     remove_coin = ccConsumables.RemoveCoin,
@@ -195,7 +260,18 @@ ccConsumables.methods = {
     remove_golden_key = ccConsumables.RemoveGoldenKey,
 
     use_random_card = ccConsumables.UseRandomCard,
+    use_holy_card = ccConsumables.UseHolyCard,
     use_random_pill = ccConsumables.UseRandomPill,
+    use_explosive_diarrhea_pill = ccConsumables.UseExplosiveDiarrhea,
+    use_dagaz_rune = ccConsumables.UseDagazRune,
+    use_chaos_card = ccConsumables.UseChaosCard,
+    use_credit_card = ccConsumables.UseCreditCard,
+    use_suicide_king_card = ccConsumables.UseSuicideKingCard,
+    use_reverse_high_priestess_card = ccConsumables.UseReverseHighPriestessCard,
+    use_reverse_emperor_card = ccConsumables.UseReverseEmperor,
+    use_soul_of_cain_card = ccConsumables.UseSoulOfCain,
+    use_soul_of_eve_card = ccConsumables.UseSoulOfEve,
+    use_soul_of_lilith_card = ccConsumables.UseSoulOfLilith,
 
 	give_blue_flies = ccConsumables.AddFlies,
 	give_blue_spider = ccConsumables.AddSpiders,

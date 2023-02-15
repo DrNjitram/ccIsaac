@@ -127,6 +127,63 @@ function ccActivateables.UseMegaMush()
     end
     return responseCode.success
 end
+--NEW added items
+function ccActivateables.UseMysteryGift()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_MYSTERY_GIFT)
+    return responseCode.success
+end
+
+function ccActivateables.UseDiplopia ()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_DIPLOPIA)
+    return responseCode.success
+end
+
+function ccActivateables.UseBoxOfFriends()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_BOX_OF_FRIENDS)
+    return responseCode.success
+end
+
+function ccActivateables.UseSmelter()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_SMELTER)
+    return responseCode.success
+end
+
+function ccActivateables.UseSacrificialAltar()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_SACRIFICIAL_ALTAR)
+    return responseCode.success
+end
+
+function ccActivateables.UseDullRazor()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_DULL_RAZOR)
+    return responseCode.success
+end
+
+function ccActivateables.UseWavyCap()
+    if CollectibleType.COLLECTIBLE_WAVY_CAP == nil then
+        return responseCode.failure, "Must be playing Repentance"
+    else
+        ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_WAVY_CAP)
+    end
+    return responseCode.success
+end
+
+function ccActivateables.UseSprinkler()
+    if CollectibleType.COLLECTIBLE_SPRINKLER == nil then
+        return responseCode.failure, "Must be playing Repentance"
+    else
+        ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_SPRINKLER)
+    end
+    return responseCode.success
+end
+
+function ccActivateables.UseDeathCertificate()
+    if CollectibleType.COLLECTIBLE_DEATH_CERTIFICATE == nil then
+        return responseCode.failure, "Must be playing Repentance"
+    else
+        ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_DEATH_CERTIFICATE)
+    end
+    return responseCode.success
+end
 
 --When adding a new function add the mapping of Crowd control code to function here
 ccActivateables.methods = {
@@ -150,6 +207,16 @@ ccActivateables.methods = {
     use_mega_blast = ccActivateables.UseMegaBlast,
     use_forget_me_now = ccActivateables.UseForgetMeNow,
 	use_r_key = ccActivateables.UseRKey,
-    use_mega_mush = ccActivateables.UseMegaMush
+    use_mega_mush = ccActivateables.UseMegaMush,
+    use_mystery_gift = ccActivateables.UseMysteryGift,
+    use_diplopia = ccActivateables.UseDiplopia,
+    use_box_of_friends = ccActivateables.UseBoxOfFriends,
+    use_smelter = ccActivateables.UseSmelter,
+    use_sacrificial_altar = ccActivateables.UseSacrificialAltar,
+    use_dull_razor = ccActivateables.UseDullRazor,
+    use_wavy_cap = ccActivateables.UseWavyCap,
+    use_sprinkler = ccActivateables.UseSprinkler,
+    use_death_certificate = ccActivateables.UseDeathCertificate
+
 }
 return ccActivateables
