@@ -36,7 +36,7 @@ time_table = {
     ["no_hud_timed"] = 60000,
     ["old_tv_timed"] = 60000,
     ["poop_trail_timed"] = 15000,
-    ["invisble_timed"] = 30000,
+    --["invisble_timed"] = 30000,
     ["isaac_takes_massive_damage_timed"] = 15000,
     ["damage_when_stopped_timed"] = 10000,
     ["dyslexia_timed"] = 60000,
@@ -229,7 +229,7 @@ function ccIsaac.EndAllEffects()
     answer = ccTimed.InverseControls_end()
     answer = ccTimed.OldTv_end()
     answer = ccTimed.POOPTRAIL_end()
-    answer = ccTimed.Invisble_end()
+    --answer = ccTimed.Invisble_end()
     answer = ccTimed.Dyslexia_end()
     answer = ccTimed.DamageWhenStopped_end()
     answer = ccTimed.MassiveDamage_end()

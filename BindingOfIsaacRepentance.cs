@@ -15,24 +15,23 @@ namespace CrowdControl.Games.Packs
 
 		public override ushort Port => 58430;
 
-		public BindingOfIsaacAfterbirthPlus(IPlayer player, Func<CrowdControlBlock, bool> responseHandler, Action<object> statusUpdateHandler) : base(player, responseHandler, statusUpdateHandler) { 
-		}
+		public BindingOfIsaacAfterbirthPlus(IPlayer player, Func<CrowdControlBlock, bool> responseHandler, Action<object> statusUpdateHandler) : base(player, responseHandler, statusUpdateHandler) { }
 
 		public override Game Game => new Game(60, "The Binding Of Isaac: Repentance", "BindingOfIsaacAfterbirthPlus", "PC", ConnectorType.SimpleTCPConnector);
 
 		// When adding new functions to the mod please add the new Crowd Control Effect here
 		//This is a display name mapped to a unique string. This is used to map the function from CC to Mod
-		public override List<Effect> Effects => new List<Effect> {
-
+		public override List<Effect> Effects => new List<Effect>
+		{
 			new Effect("Add Heart Container", "add_heart_container") {Price = 50, Description = "Add a red heart container"},
 			new Effect("Remove Heart Container", "remove_heart_container") {Price = 50, Description = "Remove a red heart container (can not remove last red heart container)"},
 			new Effect("Damage Player", "damage_half_heart") {Price = 30, Description = "Deal half a red heart of damage (will not kill player)"},
 			new Effect("Heal Player", "heal_half_heart") {Price = 10, Description = "Heal half a red heart of damage"},
 			new Effect("Full Heal Player", "heal_full") {Price = 50, Description = "Fills all empty red hearts"},
 			new Effect("Teleport Player", "random_tp") {Price = 50, Description = "Teleport player to a random room, including secret rooms"},
-			new Effect("Give Blue spider", "give_blue_spider", new[]{"amount50"}) {Price = 5, Description = "Give the player a number of blue spiders"},
-			new Effect("Give Flies", "give_blue_flies", new[]{"amount50"}) {Price = 5, Description = "Give the player a number of blue flies"},
-			new Effect("Give Dips", "give_random_dip", new[]{"amount50"}) {Price = 5, Description = "Give the player a number of random dips"},
+			new Effect("Give Blue spider", "give_blue_spider", new[]{"quantity50"}) {Price = 5, Description = "Give the player a number of blue spiders"},
+			new Effect("Give Flies", "give_blue_flies", new[]{"quantity50"}) {Price = 5, Description = "Give the player a number of blue flies"},
+			new Effect("Give Dips", "give_random_dip", new[]{"quantity50"}) {Price = 5, Description = "Give the player a number of random dips"},
 			new Effect("Charge Item", "charge_item") {Price = 25, Description = "Fully charge the current item!"},
 			new Effect("Use Item", "use_active_item") {Price = 50, Description = "Use the current active item and drain its charge!"},
 			new Effect("Fart!", "fart") {Price = 10, Description = "Oof, thats a smelly one"},
@@ -50,7 +49,7 @@ namespace CrowdControl.Games.Packs
 			new Effect("Flight", "flight_timed", "timed_effects") {Price = 50, Description = "Fly so high! (Lasts 60 seconds)"},
 			new Effect("CRT Vision", "old_tv_timed", "timed_effects") {Price = 50, Description = "Just like in the old days! (Lasts 60 seconds)"},
 			new Effect("Poop Trail", "poop_trail_timed", "timed_effects") {Price = 50, Description = "Just gross (Lasts 15 seconds)"},
-			new Effect("Invisibility", "invisble_timed", "timed_effects") {Price = 50, Description = "You can't see me (Lasts 30 seconds)"},
+			//new Effect("Invisibility", "invisble_timed", "timed_effects") {Price = 50, Description = "You can't see me (Lasts 30 seconds)"},
 			new Effect("Massive Damage", "isaac_takes_massive_damage_timed", "timed_effects") {Price = 1000, Description = "Paper thin defense (Lasts 15 seconds)"},
 			new Effect("Damage when stopped", "damage_when_stopped_timed", "timed_effects") {Price = 500, Description = "Can't stop won't stop (Lasts 10 seconds)"},
 			new Effect("Camo Enemies", "camo_enemies_timed", "timed_effects") {Price = 50, Description = "Turn on enemy radar (Lasts 30 seconds)"},
@@ -69,19 +68,18 @@ namespace CrowdControl.Games.Packs
 
 			//Give Take Consumeable Folder
 			new Effect("Give/Take Consumable", "give_take_consumeable", ItemKind.Folder),
-			new Effect("Give Coin", "add_coin", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
-			new Effect("Take Coin", "remove_coin", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
-			new Effect("Give Bomb", "add_bomb", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
-			new Effect("Take Bomb", "remove_bomb", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Give Coin", "add_coin", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Take Coin", "remove_coin", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Give Bomb", "add_bomb", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Take Bomb", "remove_bomb", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
 			new Effect("Give Golden Bomb", "add_golden_bomb", "give_take_consumeable") {Price = 50, Description = "Unlimited bombs!"},
 			new Effect("Take Golden Bomb", "remove_golden_bomb", "give_take_consumeable") {Price = 50, Description = ""},
-			new Effect("Give Key", "add_key", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
-			new Effect("Take Key", "remove_key", new[]{"amount100"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Give Key", "add_key", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
+			new Effect("Take Key", "remove_key", new[]{"quantity99"}, "give_take_consumeable") {Price = 5, Description = ""},
 			new Effect("Give Golden Key", "add_golden_key", "give_take_consumeable") {Price = 50, Description = "Unlimited keys!"},
 			new Effect("Take Golden Key", "remove_golden_key", "give_take_consumeable") {Price = 50, Description = ""},
 			new Effect("Add Gigabomb", "add_giga_bomb", "give_take_consumeable") {Price = 50, Description = "Add a big boi bomb that blows up the floor!"},
 			new Effect("Take Gigabomb", "remove_giga_bomb", "give_take_consumeable") {Price = 50, Description = ""},
-			
 
 			//Pocket items such as Cards, Pills, Souls, and runes
 			new Effect("Pocket Items", "pocket_items", ItemKind.Folder),
@@ -98,7 +96,6 @@ namespace CrowdControl.Games.Packs
 			new Effect("Use Soul Of Cain", "use_soul_of_cain_card", "pocket_items") {Price = 25, Description = "Opens red doors where available"},
 			new Effect("Use Soul Of Eve", "use_soul_of_eve_card", "pocket_items") {Price = 25, Description = "Thats a lot of dead birds"},
 			new Effect("Use Soul of Lilith", "use_soul_of_lilith_card", "pocket_items") {Price = 50, Description = "Summon a random familiar for the streamer"},
-
 
 			// Use Folder
 			new Effect("Use Item", "use_item", ItemKind.Folder),
@@ -186,10 +183,6 @@ namespace CrowdControl.Games.Packs
 			new Effect("Take Tech X", "remove_tech_x", "give_take_item") {Price = 50, Description = ""},
 			new Effect("Take Dr Fetus", "remove_dr_fetus", "give_take_item") {Price = 50, Description = ""},
 
-
-
-			
-
 			//Effects not taken from an active item
 			//new Effect("Give/take Item", "give_take_item", ItemKind.Folder) {Price = , Description = ""},
 		};
@@ -197,19 +190,14 @@ namespace CrowdControl.Games.Packs
 		//Slider ranges need to be defined
 		public override List<ItemType> ItemTypes => new List<ItemType>(new[]
 		{
-			new ItemType("Amount", "amount100", ItemType.Subtype.Slider, "{\"min\":1,\"max\":99}"),
-			new ItemType("Amount", "amount50", ItemType.Subtype.Slider, "{\"min\":1,\"max\":50}")
+			new ItemType("Amount", "quantity99", ItemType.Subtype.Slider, "{\"min\":1,\"max\":99}"),
+			new ItemType("Amount", "quantity50", ItemType.Subtype.Slider, "{\"min\":1,\"max\":50}")
 		});
 
-		public override bool StopAllEffects() {
-    		return Connector.Send(new Request {
+		public override bool StopAllEffects() => Connector.Send(new Request {
 				viewer = "SDK",
 				code = "stop_all_effects",
 				type = RequestType.Stop
 			});
-		}
-
 	}
-
-	
 }

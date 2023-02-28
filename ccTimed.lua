@@ -120,13 +120,13 @@ function ccTimed.POOPTRAIL_end()
     return ccTimed.EndSeedEffect(SeedEffect.SEED_POOP_TRAIL)
 end
 
-function ccTimed.Invisble()
-    ccTimed.ActivateSeedEffect(SeedEffect.SEED_INVISIBLE_ISAAC)
-end
+--function ccTimed.Invisble()
+--    ccTimed.ActivateSeedEffect(SeedEffect.SEED_INVISIBLE_ISAAC)
+--end
 
-function ccTimed.Invisble_end()
-    return ccTimed.EndSeedEffect(SeedEffect.SEED_INVISIBLE_ISAAC)
-end
+--function ccTimed.Invisble_end()
+--    return ccTimed.EndSeedEffect(SeedEffect.SEED_INVISIBLE_ISAAC)
+--end
 
 function ccTimed.IcePhysics()
     ccTimed.ActivateSeedEffect(SeedEffect.SEED_ICE_PHYSICS)
@@ -203,8 +203,8 @@ ccTimed.methods = {
     old_tv_timed_end = ccTimed.OLDTV_end,
     poop_trail_timed = ccTimed.POOPTRAIL,
     poop_trail_timed_end = ccTimed.POOPTRAIL_end,
-    invisble_timed = ccTimed.Invisble,
-    invisble_timed_end = ccTimed.Invisble_end,
+    --invisble_timed = ccTimed.Invisble,
+    --invisble_timed_end = ccTimed.Invisble_end,
     ice_physics_timed = ccTimed.IcePhysics,
     ice_physics_timed_end = ccTimed.IcePhysics_end,
     camo_enemies_timed = ccTimed.CamoEnemies,
