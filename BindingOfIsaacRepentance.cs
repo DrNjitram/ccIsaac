@@ -49,7 +49,6 @@ namespace CrowdControl.Games.Packs
 			new Effect("Flight", "flight_timed", "timed_effects") {Price = 50, Description = "Fly so high! (Lasts 60 seconds)"},
 			new Effect("CRT Vision", "old_tv_timed", "timed_effects") {Price = 50, Description = "Just like in the old days! (Lasts 60 seconds)"},
 			new Effect("Poop Trail", "poop_trail_timed", "timed_effects") {Price = 50, Description = "Just gross (Lasts 15 seconds)"},
-			//new Effect("Invisibility", "invisble_timed", "timed_effects") {Price = 50, Description = "You can't see me (Lasts 30 seconds)"},
 			new Effect("Massive Damage", "isaac_takes_massive_damage_timed", "timed_effects") {Price = 1000, Description = "Paper thin defense (Lasts 15 seconds)"},
 			new Effect("Damage when stopped", "damage_when_stopped_timed", "timed_effects") {Price = 500, Description = "Can't stop won't stop (Lasts 10 seconds)"},
 			new Effect("Camo Enemies", "camo_enemies_timed", "timed_effects") {Price = 50, Description = "Turn on enemy radar (Lasts 30 seconds)"},
