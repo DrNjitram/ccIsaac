@@ -17,7 +17,7 @@ namespace CrowdControl.Games.Packs
 
 		public BindingOfIsaacAfterbirthPlus(IPlayer player, Func<CrowdControlBlock, bool> responseHandler, Action<object> statusUpdateHandler) : base(player, responseHandler, statusUpdateHandler) { }
 
-		public override Game Game => new Game(60, "The Binding Of Isaac: Repentance", "BindingOfIsaacAfterbirthPlus", "PC", ConnectorType.SimpleTCPConnector);
+		public override Game Game => new Game(60, "The Binding Of Isaac: Repentance", "BindingOfIsaacAfterbirthPlus", "PC", ConnectorType.SimpleTCPServerConnector);
 
 		// When adding new functions to the mod please add the new Crowd Control Effect here
 		//This is a display name mapped to a unique string. This is used to map the function from CC to Mod

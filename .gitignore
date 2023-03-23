@@ -42,4 +42,4 @@ luac.out
 libs/*
 obj/*
 
-
+*.csproj
