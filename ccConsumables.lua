@@ -3,7 +3,7 @@ local responseCode = require("tcpResponseCode")
 --Increased the amount to a full heart container as it is confusing for players to have a half empty heart container they can't fill
 function ccConsumables.AddHeartContainer()
     local character = player:GetPlayerType()
-    if character == PlayerType.PLAYER_THELOST or character == PlayerType.PLAYER_THELOST_B or character == PlayerType.PLAYER_KEEPER or character == PlayerType.PLAYER_KEEPER_B or character == PlayerType.PLAYER_JUDAS_B or player:GetMaxHearts() == 24 then
+    if character == PlayerType.PLAYER_THELOST or character == PlayerType.PLAYER_THELOST_B or character == PlayerType.PLAYER_KEEPER or character == PlayerType.PLAYER_KEEPER_B or player:GetMaxHearts() == 24 then
         return responseCode.failure, "Already At Max Hearts"
     end
     player:AddMaxHearts(2)
