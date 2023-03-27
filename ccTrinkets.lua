@@ -1,18 +1,29 @@
 local ccTrinkets = {}
-
 local responseCode = require("tcpResponseCode")
 
 -- Used internally
 function ccTrinkets:GiveTrinket()
-	local trinket = 1 + rng:RandomInt(TrinketType.NUM_TRINKETS)
+    local trinket = player:GetTrinket(0)
+   if trinket ==  53 or trinket == TrinketType.TRINKET_TICK then
+       return responseCode.failure, "Tick Check"
+    else
+	local trinket = (rng:RandomInt(TrinketType.NUM_TRINKETS))
+    if trinket == 0 or trinket == 53 or trinket == 190 or trinket == nil then
+    player:AddTrinket(1)
+    else
 	--player:AnimateTrinket (trinket, "Pickup", "PlayerPickupSparkle")
 	player:AddTrinket(trinket)
+        end
+    end
 end
+
+
+
 
 function ccTrinkets:DropTrinket()
     local trinket = player:GetTrinket(0)
 
-    if trinket ==  nil or trinket == TrinketType.TRINKET_NULL then
+    if trinket ==  53 or trinket == TrinketType.TRINKET_TICK then
         return responseCode.failure, "No Trinket To Drop"
     end
 

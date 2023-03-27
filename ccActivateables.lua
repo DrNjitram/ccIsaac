@@ -53,15 +53,6 @@ function ccActivateables.RollD20()
     return responseCode.success
 end
 
-function ccActivateables.RollDInf()
-    if CollectibleType.COLLECTIBLE_D_INFINITY ~= nil then -- for afterbirth
-		return ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_D_INFINITY)
-	else
-		return ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_DINF)
-	end
-    return responseCode.success
-end
-
 function ccActivateables.UseGuppiesHead()
     ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_GUPPYS_HEAD)
     return responseCode.success
@@ -133,7 +124,7 @@ function ccActivateables.UseMysteryGift()
     return responseCode.success
 end
 
-function ccActivateables.UseDiplopia ()
+function ccActivateables.UseDiplopia()
     ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_DIPLOPIA)
     return responseCode.success
 end
@@ -185,6 +176,12 @@ function ccActivateables.UseDeathCertificate()
     return responseCode.success
 end
 
+function ccActivateables.UseMomsBox()
+    ccActivateables.UseActiveItem(CollectibleType.COLLECTIBLE_MOMS_BOX)
+    return responseCode.success
+end
+
+
 --When adding a new function add the mapping of Crowd control code to function here
 ccActivateables.methods = {
     use_d1 = ccActivateables.RollD1,
@@ -195,7 +192,6 @@ ccActivateables.methods = {
     use_d10 = ccActivateables.RollD10,
     use_d12 = ccActivateables.RollD12,
     use_d20 = ccActivateables.RollD20,
-    use_d_inf = ccActivateables.RollDInf,
 
     use_guppies_head = ccActivateables.UseGuppiesHead,
     use_guppies_paw = ccActivateables.UseGuppiesPaw,
@@ -216,7 +212,8 @@ ccActivateables.methods = {
     use_dull_razor = ccActivateables.UseDullRazor,
     use_wavy_cap = ccActivateables.UseWavyCap,
     use_sprinkler = ccActivateables.UseSprinkler,
-    use_death_certificate = ccActivateables.UseDeathCertificate
+    use_death_certificate = ccActivateables.UseDeathCertificate,
+    use_moms_box = ccActivateables.UseMomsBox,
 
 }
 return ccActivateables

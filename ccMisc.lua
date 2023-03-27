@@ -59,7 +59,7 @@ function ccMisc.Fart()
 end
 
 function ccMisc.Explode()
-    if player:GetHearts() == 1 then
+    if player:GetHearts() == 1 or player:GetHearts() == 0 or player:GetHearts() == 2 then
 	    return responseCode.failure, "Can't kill player with explode"
     end
     Game():BombExplosionEffects(player.Position, 40)

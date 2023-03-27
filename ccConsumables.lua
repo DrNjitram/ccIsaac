@@ -1,18 +1,18 @@
 local ccConsumables = {}
-
-
 local responseCode = require("tcpResponseCode")
 --Increased the amount to a full heart container as it is confusing for players to have a half empty heart container they can't fill
 function ccConsumables.AddHeartContainer()
-    if player:GetMaxHearts() == 24 then
+    local character = player:GetPlayerType()
+    if character == PlayerType.PLAYER_THELOST or character == PlayerType.PLAYER_THELOST_B or character == PlayerType.PLAYER_KEEPER or character == PlayerType.PLAYER_KEEPER_B or character == PlayerType.PLAYER_JUDAS_B or player:GetMaxHearts() == 24 then
         return responseCode.failure, "Already At Max Hearts"
     end
     player:AddMaxHearts(2)
+    player:AddHearts(2)
     return responseCode.success
 end
 
 function ccConsumables.RemoveHeartContainer()
-    if player:GetMaxHearts() == 2 then
+    if character == PlayerType.PLAYER_KEEPER or character == PlayerType.PLAYER_KEEPER_B or player:GetMaxHearts() == 2 or player:GetMaxHearts() == 0 then
         return responseCode.failure, "Already At Min Hearts"
     end
     player:AddMaxHearts(-2)
@@ -36,7 +36,7 @@ function ccConsumables.HealFull()
 end
 
 function ccConsumables.DamageHalfHeart()
-	if player:GetHearts() == 1 then
+    if player:GetHearts() == 1 or player:GetHearts() == 0 or player:GetHearts() == 2 then
 	    return responseCode.failure, "Already At Min Hearts"
     end
     player:TakeDamage(1, DamageFlag.DAMAGE_RED_HEARTS, EntityRef(player), 0)
@@ -144,7 +144,7 @@ function ccConsumables.UseRandomCard()
 end
 
 function ccConsumables.UseRandomPill()
-    player:UsePill(1 + rng:RandomInt(PillEffect.NUM_PILL_EFFECTS), 1 + rng:RandomInt(PillColor.NUM_PILLS))
+    player:UsePill(rng:RandomInt(PillEffect.NUM_PILL_EFFECTS), rng:RandomInt(PillColor.NUM_PILLS))
     return responseCode.success
 end
 

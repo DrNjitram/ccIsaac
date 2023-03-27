@@ -81,6 +81,8 @@ ccIsaac:mergeTables(ccStats.methods, methodmap)
 ccIsaac:mergeTables(ccTrinkets.methods, methodmap)
 ccIsaac:mergeTables(ccTimed.methods, methodmap)
 
+
+
 function ccIsaac.Init()
     rng:SetSeed(Random(), 1)
 end
