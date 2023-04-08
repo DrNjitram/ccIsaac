@@ -40,19 +40,19 @@ namespace CrowdControl.Games.Packs
 
 			//Timed Effects Folder
 			new Effect("Timed Effects", "timed_effects", ItemKind.Folder),
-			new Effect("No HUD", "no_hud_timed", "timed_effects") {Price = 50, Description = "I CAN'T SEE! Lasts 30 seconds."},
-			new Effect("SUPER HOT", "super_hot_timed", "timed_effects") {Price = 50, Description = "SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT (Lasts 30 seconds)"},
-			new Effect("Invert Controls", "inverted_timed", "timed_effects") {Price = 50, Description = "What is up and what is down? (Lasts 30 seconds)"},
-			new Effect("Invulnerability", "invincible_timed", "timed_effects") {Price = 50, Description = "I AM INVINCIBLE! (Lasts 30 seconds)"},
-			new Effect("Retrovision", "pixelation_timed", "timed_effects") {Price = 50, Description = "We all know the CD-i was the best console! (Lasts 30 seconds)"},
-			new Effect("Flip the screen", "flipped_timed", "timed_effects") {Price = 50, Description = "What is up and what is down *2? (Lasts 30 seconds)"},
-			new Effect("Flight", "flight_timed", "timed_effects") {Price = 50, Description = "Fly so high! (Lasts 60 seconds)"},
-			new Effect("CRT Vision", "old_tv_timed", "timed_effects") {Price = 50, Description = "Just like in the old days! (Lasts 60 seconds)"},
-			new Effect("Poop Trail", "poop_trail_timed", "timed_effects") {Price = 50, Description = "Just gross (Lasts 15 seconds)"},
-			new Effect("Massive Damage", "isaac_takes_massive_damage_timed", "timed_effects") {Price = 500, Description = "Paper thin defense (Lasts 15 seconds)"},
-			new Effect("Damage when stopped", "damage_when_stopped_timed", "timed_effects") {Price = 250, Description = "Can't stop won't stop (Lasts 10 seconds)"},
-			new Effect("Camo Enemies", "camo_enemies_timed", "timed_effects") {Price = 50, Description = "Turn on enemy radar (Lasts 30 seconds)"},
-			new Effect("Dyslexia", "dyslexia_timed", "timed_effects") {Price = 50, Description = "Learn 2 read (Lasts 60 seconds)"},
+			new Effect("No HUD", "no_hud_timed", "timed_effects") {Duration = 30, Price = 50, Description = "I CAN'T SEE! Lasts 30 seconds."},
+			new Effect("SUPER HOT", "super_hot_timed", "timed_effects") {Duration = 30, Price = 50, Description = "SUPER HOT SUPER HOT SUPER HOT SUPER HOT SUPER HOT"},
+			new Effect("Invert Controls", "inverted_timed", "timed_effects") {Duration = 30, Price = 50, Description = "What is up and what is down?"},
+			new Effect("Invulnerability", "invincible_timed", "timed_effects") {Duration = 30, Price = 50, Description = "I AM INVINCIBLE!"},
+			new Effect("Retrovision", "pixelation_timed", "timed_effects") {Duration = 30, Price = 50, Description = "We all know the CD-i was the best console!"},
+			new Effect("Flip the screen", "flipped_timed", "timed_effects") {Duration = 30, Price = 50, Description = "What is up and what is down *2?"},
+			new Effect("Flight", "flight_timed", "timed_effects") {Duration = 60, Price = 50, Description = "Fly so high!"},
+			new Effect("CRT Vision", "old_tv_timed", "timed_effects") {Duration = 60, Price = 50, Description = "Just like in the old days!"},
+			new Effect("Poop Trail", "poop_trail_timed", "timed_effects") {Duration = 15, Price = 50, Description = "Just gross"},
+			new Effect("Massive Damage", "isaac_takes_massive_damage_timed", "timed_effects") {Duration = 15, Price = 500, Description = "Paper thin defense"},
+			new Effect("Damage when stopped", "damage_when_stopped_timed", "timed_effects") {Duration = 10, Price = 250, Description = "Can't stop won't stop"},
+			new Effect("Camo Enemies", "camo_enemies_timed", "timed_effects") {Duration = 30, Price = 50, Description = "Turn on enemy radar"},
+			new Effect("Dyslexia", "dyslexia_timed", "timed_effects") {Duration = 60, Price = 50, Description = "Learn 2 read"},
 
 			//Stats folder
 			new Effect("Change Stats", "change_stats", ItemKind.Folder),
@@ -125,7 +125,7 @@ namespace CrowdControl.Games.Packs
 			new Effect("Use Dull Razor", "use_dull_razor", "use_item") {Price = 25, Description = "Hurts Isaac without depleting health, activating any items that trigger upon taking damage."},
 			new Effect("Use Wavy Cap", "use_wavy_cap", "use_item") {Price = 50, Description = "Increases fire rate, decreases speed, and distorts the screen. All effects become more pronounced with repeated use, and wear off by clearing rooms."},
 			new Effect("Use Sprinkler", "use_sprinkler", "use_item") {Price = 10, Description = "Sentry going up"},
-			new Effect("Use Death Certificate", "use_death_certificate", "use_item") {Price = 50, Description = "So many options but only one choice"},
+			new Effect("Use Death Certificate", "use_death_certificate", "use_item") {Price = 150, Description = "So many options but only one choice"},
 			new Effect("Moms Box", "use_moms_box", "use_item") {Price = 5, Description = "It could be anything inside"},
 
 			//Give or Take Items folder

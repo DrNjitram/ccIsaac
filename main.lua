@@ -27,22 +27,6 @@ client:connect("127.0.0.1", 58430)
 rng = RNG() --General RNG method used by all functions
 methodmap = {} --Will contain all functions
 
-time_table = {
-    ["inverted_timed"] = 30000,
-    ["pixelation_timed"] = 30000,
-    ["flipped_timed"] = 30000,
-    ["flight_timed"] = 60000,
-    ["super_hot_timed"] = 60000,
-    ["no_hud_timed"] = 60000,
-    ["old_tv_timed"] = 60000,
-    ["poop_trail_timed"] = 15000,
-    ["isaac_takes_massive_damage_timed"] = 15000,
-    ["damage_when_stopped_timed"] = 10000,
-    ["dyslexia_timed"] = 60000,
-    ["camo_enemies_timed"] = 30000,
-    ["invincible_timed"] = 30000
-}
-
 timed_effects = {} --Table containing all currently running effects name = (duration_left_ms, id)
 last_frame_time = 0 --Used to keep track of time since last frame
 was_paused = false
@@ -111,7 +95,7 @@ function OnPause()
     for effect, info in pairs(timed_effects) do
         local time_remaining = info[1]
         local id = info[2]
-        CreateAndSendResponse(id, responseCode.paused, nil, time_remaining, 0xFF)
+        CreateAndSendResponse(id, responseCode.paused, nil, time_remaining, 0x06)
     end
 end
 
@@ -119,7 +103,7 @@ function UnPause()
     for effect, info in pairs(timed_effects) do
         local time_remaining = info[1]
         local id = info[2]
-        CreateAndSendResponse(id, responseCode.resumed, nil, time_remaining, 0xFF)
+        CreateAndSendResponse(id, responseCode.resumed, nil, time_remaining, 0x07)
     end
 end
 
@@ -134,13 +118,14 @@ function ccIsaac:ParseMessages() --Function is called 30 times per second, and o
     local finished = false
     while not finished do
         --Parse Messages until all are parsed
-        local message, status, partial =  client:receive()
+        local message, status, partial, duration =  client:receive()
         local response = responseFormat
         if  partial ~= nil and string.len(partial) > 0  then
             local partialAsTable = json.decode(partial)
             Isaac.DebugString("Dump:" .. dump(partialAsTable))
             local method = partialAsTable["code"]
             response["id"] = partialAsTable["id"]
+            response["duration"] = partialAsTable["duration"]
             if method ~= nil then
                 if partialAsTable["parameters"] ~= nil then
                     local argumentValue = partialAsTable["parameters"][1]
@@ -150,15 +135,13 @@ function ccIsaac:ParseMessages() --Function is called 30 times per second, and o
                         response["status"], response["message"] = responseCode.retry, "Effect already active"
                     end
                     response["status"], response["message"] = methodmap[method]()
-
                     if response["status"] == responseCode.failure then --Handle failure of execution
                         response["timeRemaining"] = 0
                         response["type"] = 0x00
                     else --Handle success
-                        local duration = time_table[method]
-                        timed_effects[method] = {duration, partialAsTable["id"]} --Set duration
-                                
-                        response["timeRemaining"] = duration
+                        local duration1 = response["duration"]
+                        timed_effects[method] = {duration1, partialAsTable["id"]} --Set duration                             
+                        response["timeRemaining"] = duration1
                         response["type"] = 0x00
                     end
                 elseif method == "stop_all_effects" then
