@@ -19,7 +19,7 @@ namespace CrowdControl.Games.Packs
 
         public BindingOfIsaacRepentance2(UserRecord player, Func<CrowdControlBlock, bool> responseHandler, Action<object> statusUpdateHandler) : base(player, responseHandler, statusUpdateHandler) { }
 
-        public override Game Game => new Game(186, "The Binding Of Isaac: Repentance (orcchamp)", "BindingOfIsaacRepentance_orcchamp", "PC", ConnectorType.SimpleTCPConnector);
+        public override Game Game => new Game(186, "The Binding Of Isaac: Repentance (2)", "BindingOfIsaacRepentance2", "PC", ConnectorType.SimpleTCPConnector);
 
         // When adding new functions to the mod please add the new Crowd Control Effect here
         //This is a display name mapped to a unique string. This is used to map the function from CC to Mod
